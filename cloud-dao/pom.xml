@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-dao</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dao-payment</module>
+    </modules>
 
 
 </project>
