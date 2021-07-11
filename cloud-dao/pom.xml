@@ -9,13 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-commons</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>common-entity</module>
-        <module>common-interface</module>
-    </modules>
+    <artifactId>cloud-dao</artifactId>
 
 
 </project>
