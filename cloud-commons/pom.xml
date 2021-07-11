@@ -15,7 +15,6 @@
     <modules>
         <module>common-entity</module>
         <module>common-interface</module>
-        <module>common-myBatis-generator</module>
     </modules>
 
 
