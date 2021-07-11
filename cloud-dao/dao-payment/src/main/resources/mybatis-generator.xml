@@ -108,7 +108,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <table tableName="t_ebuy_order" domainObjectName="EbuyOrderBase" enableCountByExample="true"
+        <table tableName="t_ebuy_payment" domainObjectName="EbuyPaymentBase" enableCountByExample="true"
                enableUpdateByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true"
                enableDeleteByExample="false"
