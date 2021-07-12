@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  * @date 2021/7/11
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"classpath*:com.cmj.example"})
 public class PamentApplication8001 {
     public static void main(String[] args) {
         SpringApplication.run(PamentApplication8001.class, args);

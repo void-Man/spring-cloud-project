@@ -4,6 +4,7 @@ import com.cmj.example.IPaymentService;
 import com.cmj.example.vo.CommonResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -14,13 +15,14 @@ import java.math.BigDecimal;
  * @description
  * @date 2021/7/12
  */
-@RestController
+@RestController("/payment")
 @Slf4j
 public class PaymentController {
     @Resource
     private IPaymentService paymentService;
 
-    @PostMapping(value = "/payment/create")
+    @PostMapping("/create")
+    @ResponseBody
     public CommonResultVo<?> create(String tradeNo, BigDecimal amount) {
         int result = paymentService.create(tradeNo, amount);
         if (result > 0) {

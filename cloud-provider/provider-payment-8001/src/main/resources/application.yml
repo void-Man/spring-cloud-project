@@ -13,7 +13,7 @@ spring:
 
 
 mybatis:
-  mapperLocations: classpath:mapper/*.xml
+  mapperLocations: classpath*:com.cmj.example.xml/*.xml
   type-aliases-package: com.cmj.example.vo    # 所有Entity别名类所在包
 
 
