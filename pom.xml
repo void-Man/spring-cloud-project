@@ -13,6 +13,7 @@
         <module>cloud-commons</module>
         <module>cloud-dao</module>
         <module>cloud-provider</module>
+        <module>cloud-service</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
