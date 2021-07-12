@@ -15,13 +15,14 @@ import java.math.BigDecimal;
  * @description
  * @date 2021/7/12
  */
-@RestController("/payment")
+@RestController
 @Slf4j
 public class PaymentController {
+
     @Resource
     private IPaymentService paymentService;
 
-    @PostMapping("/create")
+    @PostMapping("/payment/create")
     @ResponseBody
     public CommonResultVo<?> create(String tradeNo, BigDecimal amount) {
         int result = paymentService.create(tradeNo, amount);

@@ -63,6 +63,18 @@
         </dependency>
         <dependency>
             <groupId>com.cmj.example</groupId>
+            <artifactId>service-payment</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.cmj.example</groupId>
+            <artifactId>dao-payment</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.cmj.example</groupId>
             <artifactId>entity-payment</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
