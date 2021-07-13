@@ -2,8 +2,10 @@ package com.cmj.example.controller;
 
 import com.cmj.example.IPaymentService;
 import com.cmj.example.vo.CommonResultVo;
+import com.cmj.example.vo.PaymentDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,10 +26,12 @@ public class PaymentController {
 
     @PostMapping("/payment/create")
     @ResponseBody
-    public CommonResultVo<?> create(String tradeNo, BigDecimal amount) {
-        int result = paymentService.create(tradeNo, amount);
+    public CommonResultVo<?> create(@RequestBody PaymentDto paymentDto) {
+        int result = paymentService.create(paymentDto.getTradeNo(), paymentDto.getAmount());
         if (result > 0) {
             return CommonResultVo.builder()
+                    .code(200)
+                    .msg("成功")
                     .data("")
                     .build();
         } else {
