@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>provider-payment-8001</module>
+        <module>provider-payment-eureka-8002</module>
     </modules>
 
 
