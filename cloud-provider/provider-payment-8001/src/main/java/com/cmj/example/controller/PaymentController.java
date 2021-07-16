@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 
 /**
  * @author mengjie_chen
@@ -41,7 +40,6 @@ public class PaymentController {
                     .msg("创建账单失败")
                     .build();
         }
-
     }
 
 }
