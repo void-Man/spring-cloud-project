@@ -30,7 +30,7 @@ public class PaymentController {
         if (result > 0) {
             return CommonResultVo.builder()
                     .code(200)
-                    .msg("成功")
+                    .msg("into PaymentController 8004")
                     .data("")
                     .build();
         } else {
