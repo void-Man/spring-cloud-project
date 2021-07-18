@@ -1,0 +1,24 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: provider-payment-consul
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/db2021?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  ####consul注册中心地址
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+
+mybatis:
+  mapperLocations: com/cmj/example/xml/*.xml
+  type-aliases-package: com.cmj.example.vo    # 所有Entity别名类所在包
