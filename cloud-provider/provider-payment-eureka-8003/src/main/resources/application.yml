@@ -19,6 +19,8 @@ eureka:
     fetchRegistry: true
     service-url:
       defaultZone: http://127.0.0.1:7002/eureka,http://127.0.0.1:7003/eureka  # 集群版
+  instance:
+    instance-id: provider-payment-eureka-8003
 
 
 mybatis:
