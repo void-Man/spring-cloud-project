@@ -1,5 +1,7 @@
 package com.cmj.example;
 
+import com.cmj.example.vo.PaymentDto;
+
 import java.math.BigDecimal;
 
 public interface IPaymentService {
@@ -12,4 +14,6 @@ public interface IPaymentService {
      * @return int
      */
     int create(String tradeNo, BigDecimal amount);
+
+    PaymentDto getByTradeNo(String tradeNo);
 }

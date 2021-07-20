@@ -4,12 +4,10 @@ import com.cmj.example.IPaymentService;
 import com.cmj.example.vo.CommonResultVo;
 import com.cmj.example.vo.PaymentDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Objects;
 
 /**
  * @author mengjie_chen
@@ -38,6 +36,25 @@ public class PaymentController {
                     .code(-1)
                     .data("")
                     .msg("创建账单失败")
+                    .build();
+        }
+    }
+
+    @GetMapping("/eureka/payment/getByTradeNo")
+    @ResponseBody
+    public CommonResultVo<?> getByTradeNo(String tradeNo) {
+        PaymentDto paymentDto = paymentService.getByTradeNo(tradeNo);
+        if (Objects.nonNull(paymentDto)) {
+            return CommonResultVo.builder()
+                    .code(200)
+                    .msg("into PaymentController 8004")
+                    .data(paymentDto)
+                    .build();
+        } else {
+            return CommonResultVo.builder()
+                    .code(-1)
+                    .data("")
+                    .msg("获取账单失败")
                     .build();
         }
     }
