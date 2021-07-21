@@ -17,6 +17,7 @@
         <module>consumer-payment-eureka-9003</module>
         <module>consumer-payment-consul-9004</module>
         <module>consumer-payment-ribbon-9005</module>
+        <module>consumer-payment-feign-9006</module>
     </modules>
 
     <dependencies>
@@ -31,6 +32,10 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
     </dependencies>
 </project>

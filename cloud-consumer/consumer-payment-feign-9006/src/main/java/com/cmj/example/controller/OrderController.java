@@ -1,14 +1,13 @@
 package com.cmj.example.controller;
 
+import com.cmj.example.service.IPaymentFeignService;
 import com.cmj.example.vo.CommonResultVo;
 import com.cmj.example.vo.PaymentDto;
-import com.google.common.collect.ImmutableBiMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @author mengjie_chen
@@ -18,19 +17,17 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderController {
 
-    public static final String PaymentSrv_URL = "http://provider-payment-eureka";
-
     @Autowired
-    private RestTemplate restTemplate;
+    private IPaymentFeignService paymentFeignService;
 
-    @PostMapping("/consumer/ribbon/payment/create")
+    @PostMapping("/consumer/feign/payment/create")
     public CommonResultVo<?> create(@RequestBody PaymentDto paymentDto) {
-        return restTemplate.postForObject(PaymentSrv_URL + "/eureka/payment/create", paymentDto, CommonResultVo.class);
+        return paymentFeignService.create(paymentDto);
     }
 
-    @GetMapping("/consumer/ribbon/payment/getByTradeNo")
+    @GetMapping("/consumer/feign/payment/getByTradeNo")
     public CommonResultVo<?> getByTradeNo(String tradeNo) {
-        return restTemplate.getForObject(PaymentSrv_URL + "/eureka/payment/getByTradeNo?tradeNo={tradeNo}", CommonResultVo.class, ImmutableBiMap.<String, Object>builder().put("tradeNo", tradeNo).build());
+        return paymentFeignService.getByTradeNo(tradeNo);
     }
 
 }
