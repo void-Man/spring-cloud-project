@@ -38,4 +38,17 @@ public class PaymentServiceImpl implements IPaymentService {
                 .amount(ebuyPaymentBase.getAmount())
                 .build();
     }
+
+    @Override
+    public PaymentDto getByTradeNoTimeout(String tradeNo) throws InterruptedException {
+        Thread.sleep(5000);
+        EbuyPaymentBase ebuyPaymentBase = ebuyPaymentBaseMapper.selectOneByExample(new EbuyPaymentBaseExample().createCriteria()
+                .andTradeNoEqualTo(tradeNo)
+                .andIsDeleteEqualTo(0)
+                .example());
+        return PaymentDto.builder()
+                .tradeNo(ebuyPaymentBase.getTradeNo())
+                .amount(ebuyPaymentBase.getAmount())
+                .build();
+    }
 }

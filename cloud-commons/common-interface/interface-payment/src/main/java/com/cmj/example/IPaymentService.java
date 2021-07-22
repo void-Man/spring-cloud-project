@@ -16,4 +16,6 @@ public interface IPaymentService {
     int create(String tradeNo, BigDecimal amount);
 
     PaymentDto getByTradeNo(String tradeNo);
+
+    PaymentDto getByTradeNoTimeout(String tradeNo) throws InterruptedException;
 }
