@@ -18,6 +18,7 @@
         <module>consumer-payment-consul-9004</module>
         <module>consumer-payment-ribbon-9005</module>
         <module>consumer-payment-feign-9006</module>
+        <module>consumer-payment-hystrix-9007</module>
     </modules>
 
     <dependencies>
