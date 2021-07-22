@@ -1,5 +1,6 @@
 package com.cmj.example.service;
 
+import com.cmj.example.service.impl.PaymentHystrixService;
 import com.cmj.example.vo.CommonResultVo;
 import com.cmj.example.vo.PaymentDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2021/7/21
  */
 @Component
-@FeignClient(name = "provider-payment-hystrix")
+@FeignClient(name = "provider-payment-hystrix", fallback = PaymentHystrixService.class)
 public interface IPaymentFeignService {
 
     @PostMapping("/eureka/payment/create")

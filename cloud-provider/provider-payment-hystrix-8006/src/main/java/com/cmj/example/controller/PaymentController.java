@@ -3,6 +3,8 @@ package com.cmj.example.controller;
 import com.cmj.example.IPaymentService;
 import com.cmj.example.vo.CommonResultVo;
 import com.cmj.example.vo.PaymentDto;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,7 @@ import java.util.Objects;
  */
 @RestController
 @Slf4j
+@DefaultProperties(defaultFallback = "defaultFallback")
 public class PaymentController {
 
     @Resource
@@ -61,6 +64,7 @@ public class PaymentController {
 
     @GetMapping("/eureka/payment/getByTradeNoTimeout")
     @ResponseBody
+    @HystrixCommand(defaultFallback = "methodtFallback")
     public CommonResultVo<?> getByTradeNoTimeout(String tradeNo) throws InterruptedException {
         PaymentDto paymentDto = paymentService.getByTradeNoTimeout(tradeNo);
         if (Objects.nonNull(paymentDto)) {
@@ -76,6 +80,22 @@ public class PaymentController {
                     .msg("获取账单失败")
                     .build();
         }
+    }
+
+    public CommonResultVo<?> defaultFallback() {
+        return CommonResultVo.builder()
+                .code(-1)
+                .data("")
+                .msg("8006.defaultFallback-----请求失败，请稍后再试")
+                .build();
+    }
+
+    public CommonResultVo<?> methodtFallback() {
+        return CommonResultVo.builder()
+                .code(-1)
+                .data("")
+                .msg("8006.methodtFallback-----请求失败，请稍后再试")
+                .build();
     }
 
 }
