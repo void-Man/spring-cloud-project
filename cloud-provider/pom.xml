@@ -18,6 +18,7 @@
         <module>provider-payment-eureka-8004</module>
         <module>provider-payment-consul-8005</module>
         <module>provider-payment-hystrix-8006</module>
+        <module>provider-payment-hystrix-8007</module>
     </modules>
 
     <dependencies>

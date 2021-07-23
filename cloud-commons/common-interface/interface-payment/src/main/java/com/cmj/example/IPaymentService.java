@@ -18,4 +18,8 @@ public interface IPaymentService {
     PaymentDto getByTradeNo(String tradeNo);
 
     PaymentDto getByTradeNoTimeout(String tradeNo) throws InterruptedException;
+
+    default PaymentDto getCircuitBreaker(String tradeNo) {
+        return null;
+    }
 }
