@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
 /**
@@ -61,7 +62,7 @@ public class PaymentController {
 
     @GetMapping("/eureka/payment/getCircuitBreaker")
     @ResponseBody
-    public CommonResultVo<?> getCircuitBreaker(String tradeNo) throws InterruptedException {
+    public CommonResultVo<?> getCircuitBreaker(String tradeNo) {
         PaymentDto paymentDto = paymentService.getCircuitBreaker(tradeNo);
         if (Objects.nonNull(paymentDto)) {
             return CommonResultVo.builder()
@@ -76,6 +77,16 @@ public class PaymentController {
                     .msg("获取账单失败")
                     .build();
         }
+    }
+
+    @GetMapping("/eureka/payment/testCookieRoutePredicate")
+    @ResponseBody
+    public CommonResultVo<?> testCookieRoutePredicate(HttpServletRequest request) {
+        return CommonResultVo.builder()
+                .code(200)
+                .data("")
+                .msg("成功")
+                .build();
     }
 
 }

@@ -1,0 +1,25 @@
+server:
+  port: 10001
+
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: add_request_parameter_route
+          uri: http://localhost:8007
+          predicates:
+          - Before=2022-07-24T23:50+08:00[Asia/Shanghai]
+          filters:
+            - AddRequestParameter=requestId, 7f610813feb7464fb96e0dfab0886ec5
+
+
+eureka:
+  instance:
+    instance-id: spring-cloud-gateway-10001
+  client: #服务提供者provider注册进eureka服务列表内
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://127.0.0.1:7002/eureka,http://127.0.0.1:7003/eureka

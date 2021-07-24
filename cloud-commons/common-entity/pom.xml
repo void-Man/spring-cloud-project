@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>entity-payment</module>
+        <module>entity-base</module>
     </modules>
 
     <dependencies>
