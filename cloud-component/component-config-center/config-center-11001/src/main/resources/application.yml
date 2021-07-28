@@ -1,0 +1,26 @@
+server:
+  port: 11001
+
+spring:
+  application:
+    name: spring-cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/void-Man/springcloud-config.git #GitHub上面的git仓库名字
+          ####搜索目录
+          search-paths:
+            - springcloud-config
+      ####读取分支
+      label: master
+
+
+eureka:
+  instance:
+    instance-id: spring-cloud-config-center-11001
+  client: #服务提供者provider注册进eureka服务列表内
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://127.0.0.1:7002/eureka,http://127.0.0.1:7003/eureka
