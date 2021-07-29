@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>config-client-12001</artifactId>
+    <artifactId>config-client-12002</artifactId>
 
     <dependencies>
         <dependency>
@@ -49,5 +49,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

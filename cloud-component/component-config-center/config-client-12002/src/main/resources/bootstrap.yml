@@ -1,5 +1,5 @@
 server:
-  port: 12001
+  port: 12002
 
 spring:
   application:
@@ -10,7 +10,7 @@ spring:
       name: application   #配置文件名称
       profile: dev    #读取后缀名称   上述3个综合：master分支上application-dev.yml的配置文件被读取http://localhost:11001/master/application-dev.yml
       uri: http://localhost:11001  #配置中心地址k
-  #rabbitmq相关配置
+  #rabbitmq相关配置 15672是Web管理界面的端口；5672是MQ访问的端口
   rabbitmq:
     host: localhost
     port: 5672
@@ -19,7 +19,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: spring-cloud-config-client-12001
+    instance-id: spring-cloud-config-client-12002
   client: #服务提供者provider注册进eureka服务列表内
     service-url:
       register-with-eureka: true
@@ -32,4 +32,3 @@ management:
     web:
       exposure:
         include: "*"
-
