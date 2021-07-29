@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>config-center-11001</module>
+        <module>config-client-12001</module>
     </modules>
 
 

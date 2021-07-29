@@ -1,0 +1,28 @@
+server:
+  port: 12001
+
+spring:
+  application:
+    name: spring-cloud-config-client
+  cloud:
+    config:
+      label: master
+      name: application   #配置文件名称
+      profile: dev    #读取后缀名称   上述3个综合：master分支上application-dev.yml的配置文件被读取http://localhost:11001/master/application-dev.yml
+      uri: http://localhost:11001  #配置中心地址k
+
+eureka:
+  instance:
+    instance-id: spring-cloud-config-client-12001
+  client: #服务提供者provider注册进eureka服务列表内
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://127.0.0.1:7002/eureka,http://127.0.0.1:7003/eureka
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
