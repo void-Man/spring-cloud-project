@@ -15,6 +15,7 @@
         <module>component-eureka</module>
         <module>component-gateway</module>
         <module>component-config-center</module>
+        <module>component-cloud-stream</module>
     </modules>
 
     <dependencies>
