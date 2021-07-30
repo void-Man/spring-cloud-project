@@ -19,6 +19,7 @@
         <module>consumer-payment-ribbon-9005</module>
         <module>consumer-payment-feign-9006</module>
         <module>consumer-payment-hystrix-9007</module>
+        <module>consumer-zipkin-9008</module>
     </modules>
 
     <dependencies>
