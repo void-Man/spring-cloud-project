@@ -16,6 +16,7 @@
         <module>config-client-12001</module>
         <module>config-client-12002</module>
         <module>config-center-nacos-13001</module>
+        <module>config-center-nacos-13002</module>
     </modules>
 
 
