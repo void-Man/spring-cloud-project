@@ -16,6 +16,7 @@
         <module>cloud-service</module>
         <module>cloud-consumer</module>
         <module>cloud-component</module>
+        <module>cloud-test</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
@@ -115,18 +116,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

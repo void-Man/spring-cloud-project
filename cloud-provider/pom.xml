@@ -21,6 +21,7 @@
         <module>provider-payment-hystrix-8007</module>
         <module>provider-payment-nacos-8008</module>
         <module>provider-payment-nacos-8009</module>
+        <module>provider-payment-sentinel-8010</module>
     </modules>
 
     <dependencies>
