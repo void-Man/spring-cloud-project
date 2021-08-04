@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author mengjie_chen
@@ -46,6 +47,56 @@ public class PaymentServiceImpl implements IPaymentService {
                 .andTradeNoEqualTo(tradeNo)
                 .andIsDeleteEqualTo(0)
                 .example());
+        return PaymentDto.builder()
+                .tradeNo(ebuyPaymentBase.getTradeNo())
+                .amount(ebuyPaymentBase.getAmount())
+                .build();
+    }
+
+    @Override
+    public PaymentDto getByPayId(Integer payId) {
+        EbuyPaymentBase ebuyPaymentBase = ebuyPaymentBaseMapper.selectOneByExample(new EbuyPaymentBaseExample().createCriteria()
+                .andIdEqualTo(payId)
+                .andIsDeleteEqualTo(0)
+                .example());
+        return PaymentDto.builder()
+                .tradeNo(ebuyPaymentBase.getTradeNo())
+                .amount(ebuyPaymentBase.getAmount())
+                .build();
+    }
+
+    @Override
+    public PaymentDto getByPayIdTimeout(Integer payId) throws InterruptedException {
+        Thread.sleep(300);
+        EbuyPaymentBase ebuyPaymentBase = ebuyPaymentBaseMapper.selectOneByExample(new EbuyPaymentBaseExample().createCriteria()
+                .andIdEqualTo(payId)
+                .andIsDeleteEqualTo(0)
+                .example());
+        return PaymentDto.builder()
+                .tradeNo(ebuyPaymentBase.getTradeNo())
+                .amount(ebuyPaymentBase.getAmount())
+                .build();
+    }
+
+    @Override
+    public PaymentDto getByPayIdException(Integer payId) {
+        throw new RuntimeException("throw getByPayIdException exception");
+    }
+
+    @Override
+    public PaymentDto getPayment(Integer payId, String tradeNo) {
+        EbuyPaymentBase ebuyPaymentBase;
+        if (Objects.nonNull(payId)) {
+            ebuyPaymentBase = ebuyPaymentBaseMapper.selectOneByExample(new EbuyPaymentBaseExample().createCriteria()
+                    .andIdEqualTo(payId)
+                    .andIsDeleteEqualTo(0)
+                    .example());
+        } else {
+            ebuyPaymentBase = ebuyPaymentBaseMapper.selectOneByExample(new EbuyPaymentBaseExample().createCriteria()
+                    .andTradeNoEqualTo(tradeNo)
+                    .andIsDeleteEqualTo(0)
+                    .example());
+        }
         return PaymentDto.builder()
                 .tradeNo(ebuyPaymentBase.getTradeNo())
                 .amount(ebuyPaymentBase.getAmount())

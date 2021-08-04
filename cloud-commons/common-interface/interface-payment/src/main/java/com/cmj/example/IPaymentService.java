@@ -22,4 +22,20 @@ public interface IPaymentService {
     default PaymentDto getCircuitBreaker(String tradeNo) {
         return null;
     }
+
+    default PaymentDto getByPayId(Integer payId) {
+        return null;
+    }
+
+    default PaymentDto getByPayIdTimeout(Integer payId) throws InterruptedException {
+        return null;
+    }
+
+    default PaymentDto getByPayIdException(Integer payId) {
+        return null;
+    }
+
+    default PaymentDto getPayment(Integer payId, String tradeNo) {
+        return null;
+    }
 }
