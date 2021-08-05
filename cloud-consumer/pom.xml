@@ -21,6 +21,7 @@
         <module>consumer-payment-hystrix-9007</module>
         <module>consumer-zipkin-9008</module>
         <module>consumer-nacos-9009</module>
+        <module>consumer-sentinel-9010</module>
     </modules>
 
     <dependencies>
