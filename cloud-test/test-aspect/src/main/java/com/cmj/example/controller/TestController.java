@@ -1,5 +1,6 @@
 package com.cmj.example.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cmj.example.aspect.ValidateToken;
 import com.cmj.example.vo.UserParam;
 import lombok.extern.slf4j.Slf4j;
@@ -37,5 +38,17 @@ public class TestController {
                           @RequestBody UserParam userParam) {
         log.info("into /test/aspect");
         return "success";
+    }
+
+    @PostMapping("/param")
+    public String aspect2() {
+        UserParam userParam = UserParam.builder().userName("zhangsan").userId("111").age(10).build();
+        testParam(userParam);
+        log.info(JSONObject.toJSONString(userParam));
+        return "success";
+    }
+
+    private void testParam(UserParam userParam) {
+        userParam.setAge(20);
     }
 }
