@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * @author mengjie_chen
  * @description
@@ -31,7 +33,7 @@ public class TestController {
     }
 
     @PostMapping("/aspect2")
-    @ValidateToken(token = "#token", appId = "#appId", channelId = "#channelId",userId = "#userParam.userId")
+    @ValidateToken(token = "#token", appId = "#appId", channelId = "#channelId", userId = "#userParam.userId")
     public String aspect2(@RequestHeader(name = "access_token", required = true) String token,
                           @RequestHeader(name = "app_id", required = true) String appId,
                           @RequestHeader(name = "channel_id", required = true) String channelId,
@@ -40,15 +42,10 @@ public class TestController {
         return "success";
     }
 
-    @PostMapping("/param")
-    public String aspect2() {
-        UserParam userParam = UserParam.builder().userName("zhangsan").userId("111").age(10).build();
-        testParam(userParam);
-        log.info(JSONObject.toJSONString(userParam));
-        return "success";
-    }
-
-    private void testParam(UserParam userParam) {
-        userParam.setAge(20);
+    @PostMapping("/jsr303")
+    public String aspect2(@RequestBody @Valid UserParam userParam) {
+        String res = JSONObject.toJSONString(userParam);
+        log.info(res);
+        return res;
     }
 }
