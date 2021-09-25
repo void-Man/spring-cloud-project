@@ -1,9 +1,12 @@
 package com.cmj.example.controller;
 
 import com.cmj.example.exception.BusinessException;
+import com.cmj.example.vo.ExceptionUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 /**
  * @author mengjie_chen
@@ -21,6 +24,11 @@ public class ExceptionTestController {
 
     @GetMapping("/test2")
     public String test2() {
-        throw new BusinessException("test2 throw");
+        throw new BusinessException(10000, "test2 throw");
+    }
+
+    @GetMapping("/test3")
+    public String test3(String id) {
+        return Optional.ofNullable(id).orElseThrow(() -> ExceptionUtil.throwBusinessException(10001, "haha"));
     }
 }

@@ -23,7 +23,7 @@ public class GlobalExceptionAdvice {
 
     @ExceptionHandler(value = BusinessException.class)
     @ResponseBody
-    public String handleBusinessException(Exception e) {
-        return JSONObject.toJSONString(CommonResultVo.<String>builder().msg(e.getMessage()).code(10000).build());
+    public String handleBusinessException(BusinessException e) {
+        return JSONObject.toJSONString(CommonResultVo.<String>builder().msg(e.getMessage()).code(e.getCode()).build());
     }
 }
