@@ -1,0 +1,43 @@
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!--自定义颜色配置-->
+    <conversionRule conversionWord="customcolor" converterClass="com.cmj.example.vo.LogbackColorful"/>
+    <!--控制台日志配置-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %customcolor(%-5level) --- %magenta([%10thread]) %green(%X{traceId}) %cyan(%c) : %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+    <!--日志文件配置-->
+<!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        &lt;!&ndash; 日志记录器的滚动策略，按日期，按大小记录 &ndash;&gt;-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; 每天日志归档路径以及格式 &ndash;&gt;-->
+<!--            <fileNamePattern>logs/App%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>100MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--            &lt;!&ndash;日志文件保留天数&ndash;&gt;-->
+<!--            <maxHistory>15</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %customcolor(%-5level) -&#45;&#45; %magenta([%10thread]) %cyan(%c) : %msg%n</pattern>-->
+<!--            <charset>utf-8</charset>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+    <!--自定义日志等级-->
+<!--    <logger name="cn.mrxionge" level="debug"/>-->
+<!--    <logger name="io.vertx" level="debug"/>-->
+<!--    <logger name="io.netty" level="debug"/>-->
+<!--    &lt;!&ndash;全局日志等级&ndash;&gt;-->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+<!--        <appender-ref ref="FILE"/>-->
+    </root>
+
+    <!-- 自定义日志 -->
+    <logger name="com.cmj.example" level="info" additivity="false">
+        <appender-ref ref="console" />
+        <!--        <appender-ref ref="FILE"/>-->
+    </logger>
+</configuration>
