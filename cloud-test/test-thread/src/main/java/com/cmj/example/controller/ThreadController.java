@@ -28,4 +28,10 @@ public class ThreadController {
         return "success";
     }
 
+    @GetMapping("/addCallbackTask")
+    public String addCallbackTask() {
+        threadLocalService.addCallbackTask();
+        return "success";
+    }
+
 }

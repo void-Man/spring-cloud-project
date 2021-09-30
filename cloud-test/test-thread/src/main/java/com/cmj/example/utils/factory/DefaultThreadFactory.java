@@ -24,7 +24,7 @@ public class DefaultThreadFactory implements ThreadFactory {
     }
 
     private String getThreadName() {
-        return prefix + "-" + "thread-" + countor.incrementAndGet();
+        return prefix + "-" + "Pool-" + countor.incrementAndGet();
     }
 
     public static ThreadFactory createDefaultThreadFactory(String prefix) {

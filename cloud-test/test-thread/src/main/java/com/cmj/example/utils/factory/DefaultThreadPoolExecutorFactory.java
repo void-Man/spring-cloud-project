@@ -1,6 +1,8 @@
 package com.cmj.example.utils.factory;
 
 import cn.hutool.core.thread.RejectPolicy;
+import com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.common.util.concurrent.MoreExecutors;
 
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -19,16 +21,20 @@ public class DefaultThreadPoolExecutorFactory {
     private static final Long KEEP_ALIVE_TIME = 60L;
 
     public static ThreadPoolExecutor createRunnableThreadPoolExecutor() {
-        return createThreadPoolExecutor(DEFAULT_CORE_NUMS, DEFAULT_MAX_NUMS);
+        return createThreadPoolExecutor(DEFAULT_CORE_NUMS, DEFAULT_MAX_NUMS, "RunnableExecuteTask");
     }
 
-    private static ThreadPoolExecutor createThreadPoolExecutor(int defaultCoreNums, int defaultMaxNums) {
+    public static ListeningExecutorService createCallbackThreadPoolExecutor() {
+        return MoreExecutors.listeningDecorator(createThreadPoolExecutor(DEFAULT_CORE_NUMS, DEFAULT_MAX_NUMS, "CallbackExecuteTask"));
+    }
+
+    private static ThreadPoolExecutor createThreadPoolExecutor(int defaultCoreNums, int defaultMaxNums, String prefix) {
         return new ThreadPoolExecutor(defaultCoreNums
                 , defaultMaxNums
                 , KEEP_ALIVE_TIME
                 , TimeUnit.SECONDS
                 , DefaultBlockQueueFactory.creaLinkedBlockQueue()
-                , DefaultThreadFactory.createDefaultThreadFactory("RunnableTask")
+                , DefaultThreadFactory.createDefaultThreadFactory(prefix)
                 , RejectPolicy.ABORT.getValue());
     }
 

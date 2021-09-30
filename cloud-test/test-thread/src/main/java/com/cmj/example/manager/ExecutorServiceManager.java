@@ -15,11 +15,13 @@ import java.util.concurrent.ExecutorService;
 @Component
 public class ExecutorServiceManager {
     public static final String RUNNABLE = "runnableThread";
+    public static final String CALLBACK = "callbackThread";
 
     private static final Map<String, ExecutorService> EXECUTOR_MANAGER = new HashMap<>(8);
 
     public ExecutorServiceManager() {
         EXECUTOR_MANAGER.put("runnableThread", DefaultThreadPoolExecutorFactory.createRunnableThreadPoolExecutor());
+        EXECUTOR_MANAGER.put("callbackThread", DefaultThreadPoolExecutorFactory.createCallbackThreadPoolExecutor());
     }
 
     public ExecutorService getExecutorServiceByName(String name) {
