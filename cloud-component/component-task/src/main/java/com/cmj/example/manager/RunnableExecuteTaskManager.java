@@ -21,11 +21,6 @@ public class RunnableExecuteTaskManager extends AbstractExecuteTaskManager<Execu
     private ExecutorServiceManager executorServiceManager;
 
     @Override
-    public void addTask(ExecuteTask task) {
-        super.QUEUE.offer(task);
-    }
-
-    @Override
     protected void handlerTask() {
         ExecuteTask task;
         try {

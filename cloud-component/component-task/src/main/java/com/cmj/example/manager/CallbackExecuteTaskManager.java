@@ -39,12 +39,6 @@ public class CallbackExecuteTaskManager extends AbstractExecuteTaskManager<Callb
         doHandler(task);
     }
 
-    @Override
-    public void addTask(CallbackTask<?> task) {
-        super.QUEUE.offer(task);
-    }
-
-
     private <T> void doHandler(CallbackTask<T> task) {
         ListeningExecutorService executorService = executorServiceManager.getExecutorServiceByName(ExecutorServiceManager.CALLBACK);
         Futures.addCallback(executorService.submit(task::execute), new FutureCallback<T>() {

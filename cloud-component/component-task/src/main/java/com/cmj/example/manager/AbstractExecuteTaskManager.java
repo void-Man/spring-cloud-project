@@ -20,6 +20,11 @@ public abstract class AbstractExecuteTaskManager<T> implements ExecuteTaskManage
     }
 
     @Override
+    public void addTask(T task) {
+        QUEUE.offer(task);
+    }
+
+    @Override
     public void run() {
         while (true) {
             handlerTask();
