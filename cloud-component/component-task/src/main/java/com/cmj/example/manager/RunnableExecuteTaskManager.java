@@ -1,6 +1,6 @@
 package com.cmj.example.manager;
 
-import com.cmj.example.utils.thread.ExecuteTask;
+import com.cmj.example.task.ExecuteTask;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

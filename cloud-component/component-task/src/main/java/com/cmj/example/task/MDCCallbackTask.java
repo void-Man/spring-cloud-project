@@ -1,4 +1,4 @@
-package com.cmj.example.utils.thread;
+package com.cmj.example.task;
 
 
 import lombok.Getter;
@@ -38,7 +38,6 @@ public abstract class MDCCallbackTask<P, R> implements CallbackTask<R> {
         try {
             return doExecute();
         } catch (Exception e) {
-            log.error("执行异步任务出现异常 -----> {}", e.toString());
             throw e;
         } finally {
             MDC.clear();

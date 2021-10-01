@@ -1,4 +1,4 @@
-package com.cmj.example.utils.factory;
+package com.cmj.example.factory;
 
 import cn.hutool.core.thread.RejectPolicy;
 import com.google.common.util.concurrent.ListeningExecutorService;

@@ -1,4 +1,4 @@
-package com.cmj.example.utils.thread;
+package com.cmj.example.task;
 
 public interface CallbackTask<R> {
 

@@ -1,6 +1,6 @@
 package com.cmj.example.manager;
 
-import com.cmj.example.utils.factory.DefaultThreadPoolExecutorFactory;
+import com.cmj.example.factory.DefaultThreadPoolExecutorFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

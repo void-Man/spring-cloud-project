@@ -1,6 +1,6 @@
 package com.cmj.example.manager;
 
-import com.cmj.example.utils.thread.CallbackTask;
+import com.cmj.example.task.CallbackTask;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListeningExecutorService;

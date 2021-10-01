@@ -1,6 +1,6 @@
 package com.cmj.example.manager;
 
-import com.cmj.example.utils.factory.DefaultBlockQueueFactory;
+import com.cmj.example.factory.DefaultBlockQueueFactory;
 
 import java.util.concurrent.BlockingDeque;
 

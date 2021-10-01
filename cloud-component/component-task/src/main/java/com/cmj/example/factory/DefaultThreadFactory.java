@@ -1,4 +1,4 @@
-package com.cmj.example.utils.factory;
+package com.cmj.example.factory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

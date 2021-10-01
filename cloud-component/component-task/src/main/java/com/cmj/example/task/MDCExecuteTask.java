@@ -1,4 +1,4 @@
-package com.cmj.example.utils.thread;
+package com.cmj.example.task;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

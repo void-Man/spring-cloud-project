@@ -1,4 +1,4 @@
-package com.cmj.example.utils.factory;
+package com.cmj.example.factory;
 
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
