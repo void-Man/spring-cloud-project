@@ -46,7 +46,7 @@ public class CallbackExecuteTaskManager extends AbstractExecuteTaskManager<Callb
 
 
     private <T> void doHandler(CallbackTask<T> task) {
-        ListeningExecutorService executorService = (ListeningExecutorService) executorServiceManager.getExecutorServiceByName(ExecutorServiceManager.CALLBACK);
+        ListeningExecutorService executorService = executorServiceManager.getExecutorServiceByName(ExecutorServiceManager.CALLBACK);
         Futures.addCallback(executorService.submit(task::execute), new FutureCallback<T>() {
             @Override
             public void onSuccess(@Nullable T result) {

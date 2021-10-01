@@ -16,6 +16,7 @@ import java.util.Map;
 public abstract class MDCCallbackTask<P, R> implements CallbackTask<R> {
     private static final int DEFAULT_RETRY_COUNT = 3;
 
+    @Getter
     private final int retryCount;
     @Getter
     private final P param;

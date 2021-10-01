@@ -15,6 +15,7 @@ import java.util.Map;
 public abstract class MDCExecuteTask<T> implements ExecuteTask {
     private static final int DEFAULT_RETRY_COUNT = 3;
 
+    @Getter
     private final int retryCount;
     @Getter
     private final T param;

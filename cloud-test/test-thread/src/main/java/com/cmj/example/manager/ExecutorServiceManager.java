@@ -24,7 +24,8 @@ public class ExecutorServiceManager {
         EXECUTOR_MANAGER.put("callbackThread", DefaultThreadPoolExecutorFactory.createCallbackThreadPoolExecutor());
     }
 
-    public ExecutorService getExecutorServiceByName(String name) {
-        return EXECUTOR_MANAGER.get(name);
+    @SuppressWarnings("unchecked")
+    public <T extends ExecutorService> T getExecutorServiceByName(String name) {
+        return (T) EXECUTOR_MANAGER.get(name);
     }
 }
