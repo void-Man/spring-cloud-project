@@ -6,6 +6,7 @@ import com.cmj.example.vo.PaymentDto;
 import com.dtflys.forest.annotation.JSONBody;
 import com.dtflys.forest.annotation.PostRequest;
 import com.dtflys.forest.annotation.Query;
+import com.dtflys.forest.annotation.Retry;
 import com.dtflys.forest.annotation.Var;
 
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Map;
 public interface ForestHttp {
 
     @PostRequest(url = "${url}", interceptor = ForestRequestInterceptor.class)
+    @Retry(maxRetryCount = "3", maxRetryInterval = "3000")
     CommonResultVo<?> create(@Var("url") String url, @Query Map<String, Object> urlParam, @JSONBody PaymentDto req);
 
 }
