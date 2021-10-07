@@ -22,6 +22,7 @@
         <module>consumer-zipkin-9008</module>
         <module>consumer-nacos-9009</module>
         <module>consumer-sentinel-9010</module>
+        <module>consumer-forest-9011</module>
     </modules>
 
     <dependencies>
