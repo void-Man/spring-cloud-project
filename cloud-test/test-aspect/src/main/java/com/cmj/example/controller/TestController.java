@@ -29,6 +29,7 @@ public class TestController {
                          @RequestHeader(name = "app_id", required = true) String appId,
                          @RequestHeader(name = "channel_id", required = true) String channelId) {
         log.info("into /test/aspect");
+
         return "success";
     }
 
@@ -39,11 +40,14 @@ public class TestController {
                           @RequestHeader(name = "channel_id", required = true) String channelId,
                           @RequestBody UserParam userParam) {
         log.info("into /test/aspect");
+        if (userParam.getNum() == 0) {
+            throw new RuntimeException("123");
+        }
         return "success";
     }
 
     @PostMapping("/jsr303")
-    public String aspect2(@RequestBody @Valid UserParam userParam) {
+    public String aspect3(@RequestBody @Valid UserParam userParam) {
         String res = JSONObject.toJSONString(userParam);
         log.info(res);
         return res;

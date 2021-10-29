@@ -61,7 +61,11 @@ public class ValidateTokenAspect {
 
 
         log.info("token is {}\tappId is {}\tchannel is {}\tuserId is {}", token, appId, channelId, userId);
-        return pjp.proceed();
+        try {
+            return pjp.proceed();
+        } finally {
+            System.out.println("hahahaha");
+        }
 
     }
 

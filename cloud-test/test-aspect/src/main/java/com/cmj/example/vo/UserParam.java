@@ -23,4 +23,5 @@ public class UserParam {
     private String userName;
     @ListContains(listVals = {"e", "t", "s"})
     private String userJob;
+    private Integer num;
 }
