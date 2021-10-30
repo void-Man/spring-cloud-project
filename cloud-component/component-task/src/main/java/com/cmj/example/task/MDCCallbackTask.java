@@ -1,6 +1,7 @@
 package com.cmj.example.task;
 
 
+import cn.hutool.core.lang.Snowflake;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -20,11 +21,13 @@ public abstract class MDCCallbackTask<P, R> implements CallbackTask<R> {
     private final int retryCount;
     @Getter
     private final P param;
+    private final long taskId;
     private final Map<String, String> mainMdcMap;
 
     public MDCCallbackTask(int retryCount, P param) {
         this.retryCount = retryCount;
         this.param = param;
+        this.taskId = new Snowflake().nextId();
         this.mainMdcMap = MDC.getCopyOfContextMap();
     }
 

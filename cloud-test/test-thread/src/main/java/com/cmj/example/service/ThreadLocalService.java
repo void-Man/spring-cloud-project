@@ -41,6 +41,11 @@ public class ThreadLocalService {
     }
 
     public void addCallbackTask() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            log.error(e.getMessage(), e);
+        }
         TaskParamVo paramVo = TaskParamVo.builder().id(UUID.fastUUID().toString(true)).build();
         log.info("add task is -----> {}", JSONObject.toJSONString(paramVo));
         callbackExecuteTaskManager.addTask(new MDCCallbackTask<TaskParamVo, TaskResultVo>(paramVo) {

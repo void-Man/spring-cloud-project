@@ -3,9 +3,12 @@ package com.cmj.example.manager;
 import com.cmj.example.factory.DefaultThreadPoolExecutorFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
+import java.util.stream.Collectors;
 
 /**
  * @author mengjie_chen
@@ -27,5 +30,9 @@ public class ExecutorServiceManager {
     @SuppressWarnings("unchecked")
     public <T extends ExecutorService> T getExecutorServiceByName(String name) {
         return (T) EXECUTOR_MANAGER.get(name);
+    }
+
+    public List<ExecutorService> getExecutorServices() {
+        return new ArrayList<>(EXECUTOR_MANAGER.values());
     }
 }
