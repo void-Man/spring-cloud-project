@@ -21,6 +21,11 @@ public class ApplicationShutdownListener implements ApplicationListener<ContextC
 
     @Override
     public void onApplicationEvent(ContextClosedEvent event) {
-        log.info("开始停机");
+        log.info("关闭容器");
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
