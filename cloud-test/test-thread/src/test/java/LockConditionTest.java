@@ -17,8 +17,8 @@ public class LockConditionTest {
         Buffer buffer = new Buffer(10);
         Producer producer = new Producer(buffer);
         Consumer consumer = new Consumer(buffer);
-        new Thread(producer, "producer-").start();
-        new Thread(consumer, "consumer-").start();
+        new Thread(producer, "producer").start();
+        new Thread(consumer, "consumer").start();
         System.in.read();
     }
 
